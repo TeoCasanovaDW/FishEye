@@ -4,7 +4,28 @@
   --color-primary-light: #D3573C;
 
   /* Secondary */
-  --color-secondary: #D3573C;
   --color-secondary-light: #FAFAFA;
   --color-secondary-dark: #525252;
+
+}
+
+body {
+  font-family: var(--font-dm-sans);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+    color: var(--color-primary);
+    font-size: 2.2em;
+    font-weight: normal;
 }
