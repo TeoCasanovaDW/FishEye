@@ -1,0 +1,111 @@
+.banner{
+    display: flex;
+    justify-content: space-between;
+    padding: 5vh 6vw;
+}
+
+.mainContainer{
+    padding: 5vh 6vw;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.photographersHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-secondary-light);
+    padding: 5vh 6vw;
+    border-radius: 5px;
+}
+
+
+.portrait{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.contactButton{
+    padding: 20px 10px;
+    color: #FFF;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    border: none;
+}
+
+.photosList {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.sortSelect {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.cardImageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2em 2em;
+}
+
+.cardMedia {
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+.mediaLink {
+  display: block;
+  width: 100%;
+}
+
+.media {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+
+.mediaInfos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mediaTitle {
+  color: var(--color-primary);
+  font-size: 1.3em;
+  font-weight: 400;
+}
+
+.mediaLikes {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  color: var(--color-primary);
+  font-size: 1.2em;
+}
+
+.heartIcon {
+  font-size: 1.1em;
+}
