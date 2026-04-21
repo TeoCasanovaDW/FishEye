@@ -5,7 +5,7 @@ import Link from "next/link";
 
 
 export default async function Home() {
-  
+
   const photographers = await getAllPhotographers()
 
   return (
@@ -40,8 +40,8 @@ export default async function Home() {
                 <Image
                   src={`/assets/${photographer.portrait}`}
                   alt={`Portrait de ${photographer.name}`}
-                  width={526}
-                  height={358}
+                  width={200}
+                  height={200}
                   className={styles.portrait}
                 />
                 <h2 className={styles.photographerName}>{photographer.name}</h2>
