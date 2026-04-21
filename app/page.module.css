@@ -1,0 +1,65 @@
+.banner{
+    display: flex;
+    justify-content: space-between;
+    padding: 5vh 6vw;
+}
+
+.cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5vh 6vw;
+    gap: 5vw;
+}
+
+.photographerCard{
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.photographerLink{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.photographerLink:hover .photographerName{
+    text-decoration: underline;
+}
+
+.photographerName{
+    text-align: center;
+    color: var(--color-primary-light);
+    font-size: 2.2em;
+}
+
+.portrait{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.photographerInfos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.localisation{
+    color: var(--color-primary);
+    font-size: .9em;
+}
+
+.sentence{
+    font-size: .8em;
+}
+
+.price{
+    color: var(--color-secondary-dark);
+    font-size: .75em;
+}
