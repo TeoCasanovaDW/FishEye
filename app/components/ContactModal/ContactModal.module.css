@@ -1,0 +1,105 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2em 1em;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  width: 60vw;
+  background-color: var(--color-secondary-red);
+  padding: 2em 1em 1.5em;
+  border-radius: 5px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  color: #000;
+  font-size: 3em;
+  line-height: 1;
+  font-weight: 400;
+  margin-bottom: 1.5em;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 3em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.field label {
+  font-size: 1.5em;
+  color: #312e2e;
+}
+
+.field input,
+.field textarea {
+  width: calc(100% - 1.5em);
+  border: none;
+  border-radius: 5px;
+  padding: 0.75em;
+  font: inherit;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.submitButton,
+.openButton {
+  padding: 1.8em 3.75em;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submitButton {
+  align-self: flex-start;
+  min-width: 120px;
+}
+
+.openButton {
+  min-width: 170px;
+}
+
+.openButton:hover,
+.openButton:focus-visible,
+.submitButton:hover,
+.submitButton:focus-visible,
+.closeButton:focus-visible,
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+  background-color: var(--color-secondary-red);
+}
