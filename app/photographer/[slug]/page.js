@@ -45,6 +45,7 @@ export default async function photographerDetail({ params }) {
                         width={200}
                         height={200}
                         className={styles.portrait}
+                        priority
                     />
                 </section>
 
