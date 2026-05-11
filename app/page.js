@@ -43,6 +43,7 @@ export default async function Home() {
                   width={200}
                   height={200}
                   className={styles.portrait}
+                  priority
                 />
                 <h2 className={styles.photographerName}>{photographer.name}</h2>
               </Link>
