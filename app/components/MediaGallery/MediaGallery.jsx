@@ -4,12 +4,30 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "./MediaGallery.module.css";
 import Like from "../Like/Like";
+import SortListbox from "../SortListbox/SortListbox";
 
 export default function MediaGallery({ medias }) {
   const dialogRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [sortBy, setSortBy] = useState("popularity");
 
-  const currentMedia = medias[currentIndex];
+  const sortedMedias = [...medias].sort((a, b) => {
+    if (sortBy === "popularity") {
+      return b.likes - a.likes;
+    }
+
+    if (sortBy === "date") {
+      return new Date(b.date) - new Date(a.date);
+    }
+
+    if (sortBy === "title") {
+      return a.title.localeCompare(b.title);
+    }
+
+    return 0;
+  });
+
+  const currentMedia = sortedMedias[currentIndex];
 
   function openLightbox(index) {
     setCurrentIndex(index);
@@ -20,15 +38,20 @@ export default function MediaGallery({ medias }) {
     dialogRef.current?.close();
   }
 
+  function handleSortChange(value) {
+    setSortBy(value);
+    setCurrentIndex(0);
+  }
+
   function showPrevious() {
     setCurrentIndex((index) =>
-      index === 0 ? medias.length - 1 : index - 1
+      index === 0 ? sortedMedias.length - 1 : index - 1
     );
   }
 
   function showNext() {
     setCurrentIndex((index) =>
-      index === medias.length - 1 ? 0 : index + 1
+      index === sortedMedias.length - 1 ? 0 : index + 1
     );
   }
 
@@ -37,22 +60,24 @@ export default function MediaGallery({ medias }) {
       if (!dialogRef.current?.open) return;
 
       if (event.key === "ArrowLeft") {
-        showPrevious();
+        showPrevious()
       }
 
       if (event.key === "ArrowRight") {
-        showNext();
+        showNext()
       }
     }
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [medias.length]);
+  }, [sortedMedias.length]);
 
   return (
     <>
+      <SortListbox value={sortBy} onChange={handleSortChange} />
+
       <div className={styles.cardImageContainer}>
-        {medias.map((media, index) => (
+        {sortedMedias.map((media, index) => (
           <article key={media.id} className={styles.cardMedia}>
             <button
               type="button"

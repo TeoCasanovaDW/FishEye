@@ -42,23 +42,6 @@
     gap: 5vh;
 }
 
-.filter {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.sortSelect {
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1em;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-
 .cardImageContainer {
   display: flex;
   flex-wrap: wrap;

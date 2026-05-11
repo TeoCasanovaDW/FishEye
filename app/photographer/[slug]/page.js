@@ -1,4 +1,3 @@
-import { FaHeart } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import { getPhotographer, getAllMediasForPhotographer } from "../../lib/prisma-db";
@@ -11,7 +10,10 @@ export default async function photographerDetail({ params }) {
 
     const photographer = await getPhotographer(Number(slug))
     const photographerMedias = await getAllMediasForPhotographer(photographer.id)
-    console.log(photographerMedias);
+
+    if (!photographer) {
+        return <p>Photographe introuvable</p>;
+    }
 
     return (
         <>
@@ -50,23 +52,7 @@ export default async function photographerDetail({ params }) {
                 </section>
 
                 <section className={styles.photosList}>
-                    <div className={styles.filter}>
-                        <label htmlFor="sort" className={styles.sortLabel}>
-                            Trier par
-                        </label>
-                        <select
-                            id="sort"
-                            name="sort"
-                            className={styles.sortSelect}
-                        >
-                            <option value="popularity">Popularité</option>
-                            <option value="date">Date</option>
-                            <option value="title">Titre</option>
-                        </select>
-                    </div>
-
                     <MediaGallery medias={photographerMedias} />
-
                 </section>
             </main>
         </>

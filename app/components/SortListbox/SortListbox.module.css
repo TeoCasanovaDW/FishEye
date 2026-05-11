@@ -1,0 +1,88 @@
+.filter {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.label {
+    font-weight: 700;
+    margin-top: 18px;
+}
+
+.wrapper {
+    position: relative;
+    width: 190px;
+}
+
+.trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 18px 22px;
+
+    font-size: 1.15em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.triggerOpen {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.trigger:focus-visible {
+    outline-offset: 2px;
+    background-color: var(--color-secondary-red);
+    outline: 3px solid #000;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.listbox {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+
+    width: 100%;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+.option {
+    position: relative;
+    padding: 18px 22px;
+
+    font-size: 1.15em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.option::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 22px;
+    right: 22px;
+    height: 1px;
+    background-color: white;
+}
+
+.optionActive,
+.option:hover,
+.option:focus-visible {
+    background-color: var(--color-primary-light);
+    outline: none;
+}
