@@ -10,8 +10,9 @@
 }
 
 .modal {
-  position: relative;
+  position: fixed;
   width: 60vw;
+  max-width: 700px;
   background-color: var(--color-secondary-red);
   padding: 2em 1em 1.5em;
   border-radius: 5px;
@@ -47,19 +48,14 @@
   gap: 1em;
 }
 
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4em;
-}
 
-.field label {
+.form label {
   font-size: 1.5em;
   color: #312e2e;
 }
 
-.field input,
-.field textarea {
+.form input,
+.form textarea {
   width: calc(100% - 1.5em);
   border: none;
   border-radius: 5px;
@@ -67,7 +63,7 @@
   font: inherit;
 }
 
-.field textarea {
+.form textarea {
   resize: vertical;
   min-height: 140px;
 }
@@ -97,8 +93,8 @@
 .submitButton:hover,
 .submitButton:focus-visible,
 .closeButton:focus-visible,
-.field input:focus-visible,
-.field textarea:focus-visible {
+.form input:focus-visible,
+.form textarea:focus-visible {
   outline: 3px solid #000;
   outline-offset: 2px;
   background-color: var(--color-secondary-red);
