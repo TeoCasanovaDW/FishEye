@@ -8,10 +8,12 @@ import SortListbox from "../SortListbox/SortListbox";
 
 export default function MediaGallery({ medias }) {
   const dialogRef = useRef(null);
+
+  const [galleryMedias, setGalleryMedias] = useState(medias);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sortBy, setSortBy] = useState("popularity");
 
-  const sortedMedias = [...medias].sort((a, b) => {
+  const sortedMedias = [...galleryMedias].sort((a, b) => {
     if (sortBy === "popularity") {
       return b.likes - a.likes;
     }
@@ -41,6 +43,14 @@ export default function MediaGallery({ medias }) {
   function handleSortChange(value) {
     setSortBy(value);
     setCurrentIndex(0);
+  }
+
+  function handleLike(mediaId, newLikes) {
+    setGalleryMedias((currentMedias) =>
+      currentMedias.map((media) =>
+        media.id === mediaId ? { ...media, likes: newLikes } : media
+      )
+    );
   }
 
   function showPrevious() {
@@ -108,7 +118,7 @@ export default function MediaGallery({ medias }) {
 
             <div className={styles.mediaInfos}>
               <h2 className={styles.mediaTitle}>{media.title}</h2>
-              <Like media={media}/>
+              <Like media={media} onLike={handleLike} />
             </div>
           </article>
         ))}

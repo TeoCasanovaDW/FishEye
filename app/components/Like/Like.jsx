@@ -1,16 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import styles from "./Like.module.css";
 import { updateLikeAction } from "../../actions/likeActions";
 
-export default function Like({ media }) {
-  const [likes, setLikes] = useState(media.likes);
-
+export default function Like({ media, onLike }) {
   async function handleLike() {
-    const newLikes = likes + 1;
-    setLikes(newLikes);
+    const newLikes = media.likes + 1;
+
+    onLike(media.id, newLikes);
+
     await updateLikeAction(media.id, newLikes);
   }
 
@@ -21,7 +20,7 @@ export default function Like({ media }) {
       onClick={handleLike}
       aria-label={`Ajouter un like à ${media.title}`}
     >
-      <span>{likes}</span>
+      <span>{media.likes}</span>
       <FaHeart aria-hidden="true" />
     </button>
   );
